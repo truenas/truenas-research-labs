@@ -14,25 +14,56 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #e8e8e8;
+            background: #0a1929;
             min-height: 100vh;
-            padding: 20px;
+            padding: 0;
+            margin: 0;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 100%;
             margin: 0 auto;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            background: transparent;
             overflow: hidden;
         }
 
         header {
-            background: linear-gradient(135deg, #0095d5 0%, #0067b8 100%);
+            background: linear-gradient(180deg, #0d2847 0%, #0a1929 100%);
             color: white;
-            padding: 40px;
+            padding: 40px 40px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(ellipse at 20% 50%, rgba(0, 149, 213, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 30%, rgba(0, 103, 184, 0.12) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(90deg,
+                rgba(0, 174, 239, 0.4) 0%,
+                rgba(0, 213, 255, 0.6) 25%,
+                rgba(0, 174, 239, 0.5) 50%,
+                rgba(0, 213, 255, 0.4) 75%,
+                rgba(0, 174, 239, 0.3) 100%);
+            filter: blur(20px);
+            opacity: 0.8;
         }
 
         header .header-content {
@@ -40,6 +71,8 @@
             align-items: center;
             gap: 20px;
             margin-top: 15px;
+            position: relative;
+            z-index: 1;
         }
 
         header .logo {
@@ -57,15 +90,19 @@
             font-size: 0.9em;
             margin-bottom: 15px;
             opacity: 0.9;
+            position: relative;
+            z-index: 1;
         }
 
         header .breadcrumb a {
-            color: white;
+            color: #00d5ff;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         header .breadcrumb a:hover {
             text-decoration: underline;
+            color: #00aeef;
         }
 
         header h1 {
@@ -76,8 +113,8 @@
         header .status {
             display: inline-block;
             padding: 8px 20px;
-            background: #ffc107;
-            color: #333;
+            background: #8bc34a;
+            color: #ffffff;
             border-radius: 20px;
             font-size: 0.9em;
             font-weight: bold;
@@ -85,7 +122,9 @@
         }
 
         main {
-            padding: 40px;
+            padding: 60px 40px;
+            background: #162838;
+            min-height: 60vh;
         }
 
         section {
@@ -93,32 +132,51 @@
         }
 
         h2 {
-            color: #0067b8;
+            color: #ffffff;
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 3px solid #0095d5;
+            border-bottom: 3px solid #00aeef;
         }
 
         h3 {
-            color: #0067b8;
+            color: #00d5ff;
             margin-top: 25px;
             margin-bottom: 15px;
         }
 
         p {
             margin-bottom: 15px;
+            color: #b8c5d0;
+        }
+
+        ul, ol {
+            color: #b8c5d0;
+        }
+
+        li {
+            color: #b8c5d0;
         }
 
         .info-box {
-            background: #f8f9fa;
-            border-left: 4px solid #0095d5;
+            background: rgba(22, 40, 56, 0.6);
+            border-left: 4px solid #00aeef;
             padding: 20px;
             margin: 20px 0;
-            border-radius: 5px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 174, 239, 0.2);
         }
 
         .info-box h3 {
             margin-top: 0;
+            color: #ffffff;
+        }
+
+        .info-box p {
+            color: #b8c5d0;
+        }
+
+        .info-box ul {
+            color: #b8c5d0;
         }
 
         .feature-grid {
@@ -129,25 +187,27 @@
         }
 
         .feature-card {
-            background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(51, 74, 96, 0.8) 0%, rgba(41, 60, 78, 0.8) 100%);
+            border: 1px solid rgba(0, 174, 239, 0.2);
+            border-radius: 12px;
             padding: 20px;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .feature-card:hover {
-            border-color: #0095d5;
-            box-shadow: 0 5px 15px rgba(0, 149, 213, 0.1);
+            border-color: rgba(0, 213, 255, 0.5);
+            box-shadow: 0 8px 25px rgba(0, 174, 239, 0.2);
+            background: linear-gradient(135deg, rgba(61, 84, 106, 0.8) 0%, rgba(51, 70, 88, 0.8) 100%);
         }
 
         .feature-card h4 {
-            color: #0067b8;
+            color: #ffffff;
             margin-bottom: 10px;
         }
 
         .feature-card p {
-            color: #666;
+            color: #b8c5d0;
             font-size: 0.95em;
             margin-bottom: 0;
         }
@@ -169,21 +229,24 @@
         }
 
         .tech-badge {
-            background: #0095d5;
+            background: linear-gradient(135deg, #00aeef 0%, #0095d5 100%);
             color: white;
             padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.9em;
             font-weight: 500;
+            border: 1px solid rgba(0, 213, 255, 0.3);
         }
 
         .cta-section {
-            background: linear-gradient(135deg, #0095d5 0%, #0067b8 100%);
+            background: linear-gradient(135deg, rgba(0, 174, 239, 0.2) 0%, rgba(0, 149, 213, 0.2) 100%);
             color: white;
             padding: 30px;
-            border-radius: 8px;
+            border-radius: 12px;
             text-align: center;
             margin-top: 40px;
+            border: 1px solid rgba(0, 174, 239, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 174, 239, 0.1);
         }
 
         .cta-section h3 {
@@ -194,11 +257,12 @@
 
         .cta-section p {
             margin-bottom: 0;
+            color: #e8e8e8;
         }
 
         .back-link {
             display: inline-block;
-            color: #0095d5;
+            color: #00d5ff;
             text-decoration: none;
             font-weight: bold;
             margin-bottom: 20px;
@@ -206,31 +270,99 @@
         }
 
         .back-link:hover {
-            color: #0067b8;
+            color: #00aeef;
             text-decoration: underline;
         }
 
+        a {
+            color: #00d5ff;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #00aeef;
+        }
+
+        code {
+            background: rgba(22, 40, 56, 0.8);
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #00d5ff;
+            font-family: 'Courier New', monospace;
+        }
+
+        pre {
+            background: rgba(22, 40, 56, 0.8) !important;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            border: 1px solid rgba(0, 174, 239, 0.2);
+            color: #e8e8e8;
+        }
+
         footer {
-            background: #f8f9fa;
-            padding: 20px;
+            background: #0d2847;
+            padding: 30px;
             text-align: center;
-            color: #666;
-            border-top: 1px solid #e0e0e0;
+            color: #8a9ba8;
+            border-top: 1px solid rgba(0, 174, 239, 0.2);
         }
 
         footer a {
-            color: #0095d5;
+            color: #00d5ff;
             text-decoration: none;
         }
 
         footer a:hover {
             text-decoration: underline;
+            color: #00aeef;
+        }
+
+        /* Decorative curved lines */
+        .curved-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .curved-lines::before,
+        .curved-lines::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.15;
+        }
+
+        .curved-lines::before {
+            width: 700px;
+            height: 700px;
+            top: -150px;
+            left: -250px;
+            border: 2px solid #00aeef;
+            box-shadow: 0 0 80px rgba(0, 174, 239, 0.3);
+        }
+
+        .curved-lines::after {
+            width: 500px;
+            height: 500px;
+            top: -80px;
+            right: -150px;
+            border: 2px solid #0095d5;
+            box-shadow: 0 0 60px rgba(0, 149, 213, 0.3);
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
+            <div class="curved-lines"></div>
             <div class="breadcrumb">
                 <a href="../index.html">&larr; Back to Research Labs</a>
             </div>
@@ -259,8 +391,8 @@
                     complex storage management tasks. The server runs as a native binary on your desktop and
                     securely connects to your TrueNAS system without requiring any deployment to TrueNAS itself.
                 </p>
-                <div class="info-box" style="background: #fff3cd; border-left-color: #ffc107;">
-                    <p style="margin: 0;">
+                <div class="info-box" style="background: rgba(255, 193, 7, 0.15); border-left-color: #ffc107; border-color: rgba(255, 193, 7, 0.3);">
+                    <p style="margin: 0; color: #ffd54f;">
                         <strong>⚠️ Research Preview:</strong> This project is currently in research preview and
                         is not recommended for production use.
                     </p>
@@ -354,8 +486,8 @@
                 </ul>
 
                 <h3>Security Requirements</h3>
-                <div class="info-box" style="background: #fff3cd; border-left-color: #dc3545;">
-                    <p style="margin: 0;">
+                <div class="info-box" style="background: rgba(220, 53, 69, 0.15); border-left-color: #dc3545; border-color: rgba(220, 53, 69, 0.3);">
+                    <p style="margin: 0; color: #ff8a95;">
                         <strong>🔒 Important:</strong> TrueNAS requires encrypted connections (wss://) for API key
                         authentication. Using unencrypted ws:// will cause your API key to be revoked. The MCP server
                         enforces this security measure by default.
