@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrueNAS MCP Connector | TrueNAS Research Labs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0095d5 0%, #0067b8 100%);
+            color: white;
+            padding: 40px;
+        }
+
+        header .breadcrumb {
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        header .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        header .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header .status {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #ffc107;
+            color: #333;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        main {
+            padding: 40px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #0067b8;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #0095d5;
+        }
+
+        h3 {
+            color: #0067b8;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #0095d5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .info-box h3 {
+            margin-top: 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .feature-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: #0095d5;
+            box-shadow: 0 5px 15px rgba(0, 149, 213, 0.1);
+        }
+
+        .feature-card h4 {
+            color: #0067b8;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 0;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .tech-badge {
+            background: #0095d5;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #0095d5 0%, #0067b8 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cta-section h3 {
+            color: white;
+            border: none;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            margin-bottom: 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #0095d5;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #0067b8;
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        footer a {
+            color: #0095d5;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="breadcrumb">
+                <a href="../index.html">&larr; Back to Research Labs</a>
+            </div>
+            <h1>TrueNAS MCP Connector</h1>
+            <p>AI-powered automation and management for TrueNAS systems</p>
+            <span class="status">In Development</span>
+        </header>
+
+        <main>
+            <section class="overview">
+                <h2>Overview</h2>
+                <p>
+                    The TrueNAS MCP Connector is a research project exploring the integration of TrueNAS
+                    storage systems with the Model Context Protocol (MCP). This connector enables AI assistants,
+                    automation tools, and custom applications to interact with TrueNAS through a standardized,
+                    intelligent interface.
+                </p>
+                <p>
+                    By leveraging MCP, the connector provides a semantic layer on top of the TrueNAS API,
+                    allowing AI models to understand storage concepts, make informed decisions, and automate
+                    complex storage management tasks.
+                </p>
+            </section>
+
+            <section class="goals">
+                <h2>Project Goals</h2>
+                <div class="info-box">
+                    <p>This research project aims to:</p>
+                    <ul>
+                        <li>Enable natural language interaction with TrueNAS systems through AI assistants</li>
+                        <li>Automate routine storage management tasks using intelligent agents</li>
+                        <li>Provide a standardized interface for third-party integrations</li>
+                        <li>Explore use cases for AI-assisted storage operations and troubleshooting</li>
+                        <li>Create a foundation for future intelligent storage management features</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="features">
+                <h2>Planned Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>System Management</h4>
+                        <p>Monitor system health, view logs, and manage system configuration through natural language commands.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Storage Operations</h4>
+                        <p>Create and manage pools, datasets, and zvols with intelligent validation and recommendations.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Data Protection</h4>
+                        <p>Automate snapshot creation, manage replication tasks, and configure backup strategies.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Sharing Services</h4>
+                        <p>Configure and manage SMB, NFS, iSCSI, and other sharing protocols with AI-assisted setup.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>User Management</h4>
+                        <p>Create users, manage permissions, and configure access control with security best practices.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Monitoring & Alerts</h4>
+                        <p>Query system metrics, analyze performance data, and receive intelligent alerts.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="architecture">
+                <h2>Technical Architecture</h2>
+                <p>
+                    The TrueNAS MCP Connector is built as a bridge between MCP-compatible clients and the
+                    TrueNAS REST API. It translates high-level semantic requests into specific API calls
+                    and provides context-aware responses.
+                </p>
+
+                <h3>Technology Stack</h3>
+                <div class="tech-stack">
+                    <span class="tech-badge">Model Context Protocol</span>
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">TrueNAS REST API</span>
+                    <span class="tech-badge">WebSocket</span>
+                    <span class="tech-badge">JSON-RPC</span>
+                </div>
+
+                <h3>Key Components</h3>
+                <ul>
+                    <li><strong>MCP Server:</strong> Handles protocol communication and request routing</li>
+                    <li><strong>API Client:</strong> Manages connections to TrueNAS systems</li>
+                    <li><strong>Context Engine:</strong> Provides semantic understanding of storage operations</li>
+                    <li><strong>Security Layer:</strong> Ensures safe and authenticated access to TrueNAS</li>
+                </ul>
+            </section>
+
+            <section class="use-cases">
+                <h2>Example Use Cases</h2>
+
+                <h3>Intelligent Storage Management</h3>
+                <p>
+                    "Create a new dataset for video storage with compression enabled and set up weekly snapshots"
+                    - The AI assistant understands the requirements and configures optimal settings.
+                </p>
+
+                <h3>Automated Troubleshooting</h3>
+                <p>
+                    "Why is my pool showing degraded status?" - The connector analyzes pool health,
+                    disk status, and system logs to provide a comprehensive diagnosis.
+                </p>
+
+                <h3>Proactive Maintenance</h3>
+                <p>
+                    AI agents can monitor system health, predict potential issues, and automatically
+                    execute maintenance tasks or alert administrators.
+                </p>
+
+                <h3>Simplified Configuration</h3>
+                <p>
+                    "Set up a shared folder for my team with appropriate permissions" - Complex
+                    multi-step configurations become simple conversational requests.
+                </p>
+            </section>
+
+            <section class="status">
+                <h2>Current Status</h2>
+                <div class="info-box">
+                    <h3>Development Phase</h3>
+                    <p>
+                        This project is currently in the early development phase. We are exploring
+                        the feasibility of different approaches and building proof-of-concept implementations.
+                    </p>
+                    <p>
+                        <strong>What's Being Developed:</strong>
+                    </p>
+                    <ul>
+                        <li>Core MCP server implementation</li>
+                        <li>TrueNAS API integration layer</li>
+                        <li>Basic storage operation handlers</li>
+                        <li>Security and authentication framework</li>
+                        <li>Documentation and example use cases</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="cta-section">
+                <h3>Stay Updated</h3>
+                <p>
+                    This project is under active research and development. Check back regularly
+                    for updates on progress, architecture decisions, and early access opportunities.
+                </p>
+            </div>
+        </main>
+
+        <footer>
+            <p>
+                <a href="../index.html">TrueNAS Research Labs</a> |
+                <a href="https://www.truenas.com" target="_blank">TrueNAS.com</a> |
+                <a href="https://github.com/truenas" target="_blank">GitHub</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
