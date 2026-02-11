@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TrueNAS MCP Connector | TrueNAS Research Labs</title>
+    <title>TrueNAS MCP Server | TrueNAS Research Labs</title>
     <style>
         * {
             margin: 0;
@@ -33,6 +33,24 @@
             background: linear-gradient(135deg, #0095d5 0%, #0067b8 100%);
             color: white;
             padding: 40px;
+        }
+
+        header .header-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        header .logo {
+            width: 70px;
+            height: 70px;
+            flex-shrink: 0;
+        }
+
+        header .header-text {
+            flex: 1;
+            text-align: left;
         }
 
         header .breadcrumb {
@@ -216,25 +234,38 @@
             <div class="breadcrumb">
                 <a href="../index.html">&larr; Back to Research Labs</a>
             </div>
-            <h1>TrueNAS MCP Connector</h1>
-            <p>AI-powered automation and management for TrueNAS systems</p>
-            <span class="status">In Development</span>
+            <div class="header-content">
+                <img src="../assets/truenas-logo.svg" alt="TrueNAS Logo" class="logo">
+                <div class="header-text">
+                    <h1>TrueNAS MCP Server</h1>
+                    <p>AI-powered automation and management for TrueNAS systems through natural language</p>
+                    <span class="status">Research Preview</span>
+                </div>
+            </div>
         </header>
 
         <main>
             <section class="overview">
                 <h2>Overview</h2>
                 <p>
-                    The TrueNAS MCP Connector is a research project exploring the integration of TrueNAS
-                    storage systems with the Model Context Protocol (MCP). This connector enables AI assistants,
-                    automation tools, and custom applications to interact with TrueNAS through a standardized,
-                    intelligent interface.
+                    The TrueNAS MCP Server is a Model Context Protocol implementation that enables AI models
+                    to manage TrueNAS systems through natural language. This research preview allows you to
+                    interact with your TrueNAS storage using AI assistants like Claude, providing comprehensive
+                    management capabilities through simple conversational commands.
                 </p>
                 <p>
-                    By leveraging MCP, the connector provides a semantic layer on top of the TrueNAS API,
+                    By leveraging MCP, the server provides a semantic layer on top of the TrueNAS API,
                     allowing AI models to understand storage concepts, make informed decisions, and automate
-                    complex storage management tasks.
+                    complex storage management tasks. The server runs as a native binary on your desktop and
+                    securely connects to your TrueNAS system without requiring any deployment to TrueNAS itself.
                 </p>
+                <div class="info-box" style="background: #fff3cd; border-left-color: #ffc107;">
+                    <p style="margin: 0;">
+                        <strong>⚠️ Research Preview:</strong> This project is currently in research preview and
+                        is not recommended for production use. Please test thoroughly in a safe environment before
+                        using with critical systems.
+                    </p>
+                </div>
             </section>
 
             <section class="goals">
@@ -252,115 +283,232 @@
             </section>
 
             <section class="features">
-                <h2>Planned Features</h2>
+                <h2>Core Features</h2>
                 <div class="feature-grid">
                     <div class="feature-card">
-                        <h4>System Management</h4>
-                        <p>Monitor system health, view logs, and manage system configuration through natural language commands.</p>
+                        <h4>System Monitoring</h4>
+                        <p>System information, health status, alerts, and comprehensive performance metrics for CPU, memory, disk I/O, and network.</p>
                     </div>
                     <div class="feature-card">
-                        <h4>Storage Operations</h4>
-                        <p>Create and manage pools, datasets, and zvols with intelligent validation and recommendations.</p>
+                        <h4>Storage Management</h4>
+                        <p>Pool management, dataset operations, snapshot handling, and file sharing configuration for SMB, NFS, and iSCSI.</p>
                     </div>
                     <div class="feature-card">
-                        <h4>Data Protection</h4>
-                        <p>Automate snapshot creation, manage replication tasks, and configure backup strategies.</p>
+                        <h4>Virtual Machines</h4>
+                        <p>Complete VM management including creation, configuration, lifecycle control, and resource monitoring.</p>
                     </div>
                     <div class="feature-card">
-                        <h4>Sharing Services</h4>
-                        <p>Configure and manage SMB, NFS, iSCSI, and other sharing protocols with AI-assisted setup.</p>
+                        <h4>Directory Services</h4>
+                        <p>Integration with Active Directory, LDAP, and FreeIPA for centralized authentication and user management.</p>
                     </div>
                     <div class="feature-card">
-                        <h4>User Management</h4>
-                        <p>Create users, manage permissions, and configure access control with security best practices.</p>
+                        <h4>Capacity Planning</h4>
+                        <p>Utilization analysis, trend forecasting, and intelligent recommendations for storage capacity planning.</p>
                     </div>
                     <div class="feature-card">
-                        <h4>Monitoring & Alerts</h4>
-                        <p>Query system metrics, analyze performance data, and receive intelligent alerts.</p>
+                        <h4>System Maintenance</h4>
+                        <p>Update management, scrub operations, boot environment control, and automated maintenance tasks.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Application Management</h4>
+                        <p>Install, upgrade, and manage TrueNAS applications with task tracking and progress monitoring.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Smart Filtering</h4>
+                        <p>Query datasets, snapshots, and VMs with intelligent filters and sorting capabilities.</p>
                     </div>
                 </div>
+
+                <h3>Safety Features</h3>
+                <ul>
+                    <li><strong>Dry-Run Mode:</strong> Preview changes before execution with warnings and estimated execution time</li>
+                    <li><strong>Built-in Validation:</strong> Prevents dangerous operations with automatic safety checks</li>
+                    <li><strong>Task Tracking:</strong> Monitor long-running operations with automatic background tracking and progress updates</li>
+                </ul>
             </section>
 
             <section class="architecture">
                 <h2>Technical Architecture</h2>
                 <p>
-                    The TrueNAS MCP Connector is built as a bridge between MCP-compatible clients and the
-                    TrueNAS REST API. It translates high-level semantic requests into specific API calls
-                    and provides context-aware responses.
+                    The TrueNAS MCP Server uses a single native binary running on your desktop that connects
+                    securely to TrueNAS middleware via WebSocket (wss://). This design requires no deployment
+                    to TrueNAS itself, supports self-signed certificates, works cross-platform, and protects
+                    API keys through mandatory encryption.
                 </p>
 
                 <h3>Technology Stack</h3>
                 <div class="tech-stack">
                     <span class="tech-badge">Model Context Protocol</span>
-                    <span class="tech-badge">Python</span>
-                    <span class="tech-badge">TrueNAS REST API</span>
-                    <span class="tech-badge">WebSocket</span>
-                    <span class="tech-badge">JSON-RPC</span>
+                    <span class="tech-badge">Go</span>
+                    <span class="tech-badge">Native Binary</span>
+                    <span class="tech-badge">WebSocket (WSS)</span>
+                    <span class="tech-badge">TrueNAS Middleware API</span>
                 </div>
 
-                <h3>Key Components</h3>
+                <h3>Architecture Benefits</h3>
                 <ul>
-                    <li><strong>MCP Server:</strong> Handles protocol communication and request routing</li>
-                    <li><strong>API Client:</strong> Manages connections to TrueNAS systems</li>
-                    <li><strong>Context Engine:</strong> Provides semantic understanding of storage operations</li>
-                    <li><strong>Security Layer:</strong> Ensures safe and authenticated access to TrueNAS</li>
+                    <li><strong>No TrueNAS Deployment:</strong> Runs entirely on your local machine, no installation on TrueNAS required</li>
+                    <li><strong>Secure by Default:</strong> Enforces encrypted connections (wss://) to protect API keys</li>
+                    <li><strong>Cross-Platform:</strong> Native binaries available for macOS (ARM/Intel), Linux, and Windows</li>
+                    <li><strong>Self-Signed Certificate Support:</strong> Works with TrueNAS systems using self-signed certificates</li>
+                    <li><strong>Lightweight:</strong> Single binary with no runtime dependencies</li>
                 </ul>
+
+                <h3>Security Requirements</h3>
+                <div class="info-box" style="background: #fff3cd; border-left-color: #dc3545;">
+                    <p style="margin: 0;">
+                        <strong>🔒 Important:</strong> TrueNAS requires encrypted connections (wss://) for API key
+                        authentication. Using unencrypted ws:// will cause your API key to be revoked. The MCP server
+                        enforces this security measure by default.
+                    </p>
+                </div>
+            </section>
+
+            <section class="installation">
+                <h2>Installation</h2>
+
+                <h3>1. Obtain Binary</h3>
+                <p>
+                    Download the platform-specific executable from the
+                    <a href="https://github.com/truenas/truenas-mcp/releases" target="_blank">GitHub releases page</a>:
+                </p>
+                <ul>
+                    <li>macOS ARM (Apple Silicon)</li>
+                    <li>macOS Intel</li>
+                    <li>Linux (x86_64)</li>
+                    <li>Windows</li>
+                </ul>
+                <p>Place the binary in your system PATH for easy access.</p>
+
+                <h3>2. Generate API Key</h3>
+                <p>
+                    In the TrueNAS web interface:
+                </p>
+                <ol style="margin-left: 20px;">
+                    <li>Navigate to System Settings → API Keys</li>
+                    <li>Click "Add" to create a new API key</li>
+                    <li>Grant appropriate permissions based on your use case</li>
+                    <li>Save the API key securely - you'll need it for configuration</li>
+                </ol>
+
+                <h3>3. Configure MCP Client</h3>
+                <p>
+                    Edit your MCP client configuration file (e.g., Claude Desktop, Claude Code) to include:
+                </p>
+                <pre style="background: #f8f9fa; padding: 15px; border-radius: 5px; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 0.9em;">
+{
+  "mcpServers": {
+    "truenas": {
+      "command": "truenas-mcp",
+      "args": [
+        "--truenas-url", "wss://your-truenas-ip",
+        "--api-key", "your-api-key-here"
+      ]
+    }
+  }
+}</pre>
+                <p>
+                    Alternatively, use environment variables:
+                </p>
+                <ul>
+                    <li><code style="background: #f8f9fa; padding: 2px 6px; border-radius: 3px;">TRUENAS_URL</code> - Your TrueNAS WebSocket URL</li>
+                    <li><code style="background: #f8f9fa; padding: 2px 6px; border-radius: 3px;">TRUENAS_API_KEY</code> - Your API key</li>
+                </ul>
+
+                <h3>4. Restart MCP Client</h3>
+                <p>
+                    Restart Claude Desktop or Claude Code to load the MCP server. Once connected, you can start
+                    managing your TrueNAS system through natural language commands.
+                </p>
             </section>
 
             <section class="use-cases">
                 <h2>Example Use Cases</h2>
-
-                <h3>Intelligent Storage Management</h3>
                 <p>
-                    "Create a new dataset for video storage with compression enabled and set up weekly snapshots"
-                    - The AI assistant understands the requirements and configures optimal settings.
+                    Natural language queries and commands you can use with the TrueNAS MCP Server:
                 </p>
 
-                <h3>Automated Troubleshooting</h3>
-                <p>
-                    "Why is my pool showing degraded status?" - The connector analyzes pool health,
-                    disk status, and system logs to provide a comprehensive diagnosis.
-                </p>
+                <h3>System Monitoring</h3>
+                <ul>
+                    <li>"What version of TrueNAS am I running?"</li>
+                    <li>"Show me any active alerts on the system"</li>
+                    <li>"What's the current CPU and memory usage?"</li>
+                    <li>"How much disk space is available?"</li>
+                </ul>
 
-                <h3>Proactive Maintenance</h3>
-                <p>
-                    AI agents can monitor system health, predict potential issues, and automatically
-                    execute maintenance tasks or alert administrators.
-                </p>
+                <h3>Storage Management</h3>
+                <ul>
+                    <li>"What's the health status of my storage pools?"</li>
+                    <li>"Show me all datasets and how much space they're using"</li>
+                    <li>"List all snapshots on my main pool"</li>
+                    <li>"Create a new dataset for video storage with compression enabled"</li>
+                </ul>
 
-                <h3>Simplified Configuration</h3>
-                <p>
-                    "Set up a shared folder for my team with appropriate permissions" - Complex
-                    multi-step configurations become simple conversational requests.
-                </p>
+                <h3>Maintenance Operations</h3>
+                <ul>
+                    <li>"Are there any system updates available?"</li>
+                    <li>"What's the status of the last scrub operation?"</li>
+                    <li>"List all boot environments"</li>
+                    <li>"When was the last backup completed?"</li>
+                </ul>
+
+                <h3>Application Management</h3>
+                <ul>
+                    <li>"Show me all installed applications"</li>
+                    <li>"Upgrade the Plex application"</li>
+                    <li>"What's the status of my running apps?"</li>
+                </ul>
+
+                <h3>Advanced Queries</h3>
+                <ul>
+                    <li>"Show me datasets using more than 80% of their quota"</li>
+                    <li>"Which VMs are currently running?"</li>
+                    <li>"Analyze storage trends over the past month"</li>
+                    <li>"Preview creating a new SMB share" (using dry-run mode)</li>
+                </ul>
             </section>
 
             <section class="status">
                 <h2>Current Status</h2>
                 <div class="info-box">
-                    <h3>Development Phase</h3>
+                    <h3>Research Preview - Available Now</h3>
                     <p>
-                        This project is currently in the early development phase. We are exploring
-                        the feasibility of different approaches and building proof-of-concept implementations.
+                        The TrueNAS MCP Server is currently available as a research preview. While it provides
+                        comprehensive functionality across monitoring, storage management, VMs, directory services,
+                        capacity planning, maintenance, and application management, it is not yet recommended for
+                        production use.
                     </p>
                     <p>
-                        <strong>What's Being Developed:</strong>
+                        <strong>What's Available:</strong>
                     </p>
                     <ul>
-                        <li>Core MCP server implementation</li>
-                        <li>TrueNAS API integration layer</li>
-                        <li>Basic storage operation handlers</li>
-                        <li>Security and authentication framework</li>
-                        <li>Documentation and example use cases</li>
+                        <li>✅ Complete MCP server implementation with native binaries</li>
+                        <li>✅ Full TrueNAS middleware API integration</li>
+                        <li>✅ 8 core feature categories with comprehensive capabilities</li>
+                        <li>✅ Security features including encrypted connections and API key protection</li>
+                        <li>✅ Task tracking for long-running operations</li>
+                        <li>✅ Dry-run mode for safe change previews</li>
+                        <li>✅ Cross-platform support (macOS, Linux, Windows)</li>
+                        <li>✅ Documentation and usage examples</li>
                     </ul>
+                    <p>
+                        <strong>Getting Started:</strong> Download the binary from the
+                        <a href="https://github.com/truenas/truenas-mcp" target="_blank">GitHub repository</a>
+                        and follow the installation instructions above.
+                    </p>
                 </div>
             </section>
 
             <div class="cta-section">
-                <h3>Stay Updated</h3>
+                <h3>Get Started Today</h3>
                 <p>
-                    This project is under active research and development. Check back regularly
-                    for updates on progress, architecture decisions, and early access opportunities.
+                    The TrueNAS MCP Server is available now as a research preview. Visit the
+                    <a href="https://github.com/truenas/truenas-mcp" target="_blank" style="color: white; text-decoration: underline;">GitHub repository</a>
+                    to download the latest release, view the documentation, and join the community.
+                </p>
+                <p style="margin-top: 15px;">
+                    <strong>Important:</strong> This is a research preview - please test thoroughly in a safe
+                    environment before using with production systems.
                 </p>
             </div>
         </main>
@@ -368,8 +516,8 @@
         <footer>
             <p>
                 <a href="../index.html">TrueNAS Research Labs</a> |
-                <a href="https://www.truenas.com" target="_blank">TrueNAS.com</a> |
-                <a href="https://github.com/truenas" target="_blank">GitHub</a>
+                <a href="https://github.com/truenas/truenas-mcp" target="_blank">GitHub Repository</a> |
+                <a href="https://www.truenas.com" target="_blank">TrueNAS.com</a>
             </p>
         </footer>
     </div>
