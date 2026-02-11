@@ -35,6 +35,24 @@
             padding: 40px;
         }
 
+        header .header-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        header .logo {
+            width: 70px;
+            height: 70px;
+            flex-shrink: 0;
+        }
+
+        header .header-text {
+            flex: 1;
+            text-align: left;
+        }
+
         header .breadcrumb {
             font-size: 0.9em;
             margin-bottom: 15px;
@@ -216,9 +234,14 @@
             <div class="breadcrumb">
                 <a href="../index.html">&larr; Back to Research Labs</a>
             </div>
-            <h1>TrueNAS MCP Server</h1>
-            <p>AI-powered automation and management for TrueNAS systems through natural language</p>
-            <span class="status">Research Preview</span>
+            <div class="header-content">
+                <img src="../assets/truenas-logo.svg" alt="TrueNAS Logo" class="logo">
+                <div class="header-text">
+                    <h1>TrueNAS MCP Server</h1>
+                    <p>AI-powered automation and management for TrueNAS systems through natural language</p>
+                    <span class="status">Research Preview</span>
+                </div>
+            </div>
         </header>
 
         <main>
